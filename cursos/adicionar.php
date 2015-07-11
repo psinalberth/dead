@@ -1,11 +1,10 @@
 <?php
   include_once '../conecta.php'; 
   include_once '../includes/common.inc.php';
-  include_once '../model/perfil.php'; 
 
   include_once '../partials/header.inc.php';
-  include_once '../model/programa.php';
   include_once '../partials/sidebar.inc.php';
+  include_once '../model/programa.php';
   include_once '../model/curso.php';
 
   if (isset($_POST['id']) && is_numeric($_POST['id'])) {
@@ -23,6 +22,8 @@
 <div id="page-wrapper">
 	<form action="../control/curso-controller.php" class="form-horizontal" method="post">
 		<fieldset>
+			<input type="hidden" name="acao" value= <?= $acao?>>
+			<input type="hidden" name="id_curso" value = <?= $id ?>>
 			<h3 class="page-header">Adicionar Curso</h3>
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary">

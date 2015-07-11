@@ -7,6 +7,12 @@
 
 }
 
+function alteraCurso($conecta, $nome, $descricao, $programa, $id) {
+	$sql = "update curso set NOME = '$nome', DESCRICAO = '$descricao', PROGRAMA_ID = '$programa' 
+			WHERE ID_CURSO = '$id'";
+	return mysqli_query($conecta, $sql);	
+}
+
 function ListaCursos($conecta){
 
 	$Cursos = array();

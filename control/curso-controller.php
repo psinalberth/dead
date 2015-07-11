@@ -1,11 +1,11 @@
 <?php
-	include_once '../conecta.php';
-	include_once '../model/programa.php';
+	include '../conecta.php';
 	include_once '../model/curso.php';
 
 	$nome = isset($_POST['nome']) ? $_POST['nome'] : "";
 	$descricao = isset($_POST['descricao']) ? $_POST['descricao'] : "";
-	$id = isset($_POST['id_curso']) ? $_POST['id_programa'] : "";
+	$programa = isset($_POST['programa']) ? $_POST['programa'] : "";
+	$id = isset($_POST['id_curso']) ? $_POST['id_curso'] : "";
 
 	init($conexao);
 	
@@ -15,22 +15,22 @@
 
 	function adicionar($conexao) {
 		
-		global $nome, $descricao;
-		inserePrograma($conexao, $nome, $descricao);
+		global $nome, $descricao, $programa;
+		insereCurso($conexao, $nome, $descricao);
 		redirect();
 	}
 
 	function editar($conexao) {
 		
-		global $nome, $descricao, $id;
-		alteraPrograma($conexao, $nome, $descricao, $id);	
+		global $nome, $descricao, $id, $programa;
+		alteraCurso($conexao, $nome, $descricao, $programa, $id);	
 		redirect();
 	}
 
 	function remover($conexao) {
 
 		global $id;
-		removePrograma($conexao, $id);
+		RemoveCurso($conexao, $id);
 		redirect();
 	}
 

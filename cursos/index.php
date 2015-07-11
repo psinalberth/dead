@@ -42,7 +42,7 @@
 				</td>
 				<td>
 					<form action="../control/curso-controller.php" method="POST">
-						<input name="id_curso" type="hidden" value="<?= $programa['ID_CURSO'] ?>"/>
+						<input name="id_curso" type="hidden" value="<?= $curso['ID_CURSO'] ?>"/>
 						<input name="acao" type="hidden" value="delete"/>
 						<button class="btn btn-danger btn-block">Excluir</button>
 					</form>					
