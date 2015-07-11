@@ -1,0 +1,80 @@
+.content {
+  position: relative;
+  height: 14rem;
+  border: 1px solid;
+}
+
+.center-div {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border: 1px dashed deeppink;
+}
+
+.vertical-center {
+  padding-top: 17.7794%;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+@media (max-width:767px) {
+
+    .btn {
+
+      display: inline-block;
+      width: 100%;
+    }
+}
+
+/* body {
+  IE10+ 
+background-image: -ms-linear-gradient(top, #E4FFC2 0%, #CBFFA3 100%);
+
+Mozilla Firefox 
+background-image: -moz-linear-gradient(top, #E4FFC2 0%, #CBFFA3 100%);
+
+Opera 
+background-image: -o-linear-gradient(top, #E4FFC2 0%, #CBFFA3 100%);
+
+Webkit (Safari/Chrome 10) 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E4FFC2), color-stop(100, #CBFFA3));
+
+Webkit (Chrome 11+) 
+background-image: -webkit-linear-gradient(top, #E4FFC2 0%, #CBFFA3 100%);
+
+W3C Markup 
+background-image: linear-gradient(to bottom, #E4FFC2 0%, #CBFFA3 100%);
+} */
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.has-feedback-left {
+
+  left: 0;
+}
