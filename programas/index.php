@@ -25,24 +25,19 @@
 				 foreach($programas as $programa) :
             ?>
 			<tr>
-				<td>
-					<form action="../programas/adicionar.php" method="POST">
-						<input name="id" type="hidden" value="<?= $programa['ID_PROGRAMA'] ?>"/>
-						<button style="background: none; border: none"><?= $programa['NOME']?></button>
-					</form>
-				</td>
+				<td><?= $programa['NOME']?></td>
 				<td><?= $programa['DESCRICAO']?></td>
 				<td>				
 					<form action="../programas/adicionar.php" method="POST">
 						<input name="id" type="hidden" value="<?= $programa['ID_PROGRAMA'] ?>"/>
-						<button class="btn btn-info btn-block">Editar</button>
+						<button class="btn btn-info" title="Editar"><i class="fa fa-edit"></i></button>
 					</form>
 				</td>
 				<td>
 					<form action="../control/programa-controller.php" method="POST">
 						<input name="id_programa" type="hidden" value="<?= $programa['ID_PROGRAMA'] ?>"/>
 						<input name="acao" type="hidden" value="delete"/>
-						<button class="btn btn-danger btn-block">Excluir</button>
+						<button class="btn btn-danger" title="Excluir"><i class="fa fa-trash-o"></i></button>
 					</form>					
 				</td>
 			</tr>

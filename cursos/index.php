@@ -10,13 +10,13 @@
 	<form action="" class="form-horizontal" method="post">
 	<fieldset>
 	<h3 class="page-header">Cursos</h3>
-	<table class="table table-bordered table-condensed" style="width: 100% !important;">
+	<table class="table table-bordered table-condensed">
 		<thead>
 			<tr>
 				<th>Nome</th>
 				<th>Descrição</th>
 				<th>Programa</th>
-				<th></th>
+				<th style="width: auto !important;"></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -26,25 +26,20 @@
 				 foreach($cursos as $curso) :
             ?>
 			<tr>
-				<td>
-					<form action="../cursos/adicionar.php" method="POST">
-						<input name="id" type="hidden" value="<?= $curso['ID_CURSO'] ?>"/>
-						<button style="background: none; border: none"><?= $curso['NOME']?></button>
-					</form>
-				</td>
+				<td><?= $curso['NOME']?></td>
 				<td><?= $curso['DESCRICAO']?></td>
 				<td><?= $curso['PROGRAMA']?></td>
-				<td>				
+				<td style="width: auto !important">				
 					<form action="../cursos/adicionar.php" method="POST">
 						<input name="id" type="hidden" value="<?= $curso['ID_CURSO'] ?>"/>
-						<button class="btn btn-info btn-block">Editar</button>
+						<button class="btn btn-info" title="Editar"><i class="fa fa-edit"></i></button>
 					</form>
 				</td>
 				<td>
 					<form action="../control/curso-controller.php" method="POST">
 						<input name="id_curso" type="hidden" value="<?= $curso['ID_CURSO'] ?>"/>
 						<input name="acao" type="hidden" value="delete"/>
-						<button class="btn btn-danger btn-block">Excluir</button>
+						<button class="btn btn-danger" title="Excluir"><i class="fa fa-trash-o"></i></button>
 					</form>					
 				</td>
 			</tr>
