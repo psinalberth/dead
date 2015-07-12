@@ -45,7 +45,7 @@
 			    				<input type="text" class="form-control" placeholder="Nome" name="nome"			    				
 			    				<?php 
 			    					if (isset($programa)) 
-			    						echo " value = ".$programa['NOME'];
+			    						echo " value = '".$programa['NOME']. "'";
 			    				?> >
 			    				</input> 	
 							</div>

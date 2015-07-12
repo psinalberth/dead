@@ -16,7 +16,7 @@
 	function adicionar($conexao) {
 		
 		global $nome, $descricao, $programa;
-		insereCurso($conexao, $nome, $descricao);
+		insereCurso($conexao, $nome, $descricao, $programa);
 		redirect();
 	}
 

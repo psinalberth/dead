@@ -46,9 +46,9 @@
 			    				<input type="text" class="form-control" placeholder="Nome" name="nome"			    				
 			    				<?php 
 			    					if (isset($curso)) 
-			    						echo " value = ".$curso['NOME'];
-			    				?> >
-			    				</input> 	
+			    						echo " value = '".$curso['NOME']. "'";
+			    				?> />
+			    				
 							</div>
 						</div>
 
