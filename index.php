@@ -31,7 +31,7 @@
     <!-- Custom Fonts -->
     <link href="/dead/resources/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="/resources/css/ead.css">
+    <link rel="stylesheet" href="/dead/resources/css/ead.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -97,20 +97,21 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-		<div class="sidebar-nav navbar-collapse">
-			<ul class="nav in" id="side-menu">
-				<li><a href="/dead/usuarios"><i class="fa fa-user fa-fw"></i>Usuários</a></li>
-				<li><a href="/dead/cursos"><i class="fa fa-edit fa-fw"></i>Cursos</a></li>
-				<li><a href="/dead/programas"><i class="fa fa-file fa-fw"></i>Programas</a></li>
-				<li><a href="/dead/disciplinas"><i class="fa fa-book fa-fw"></i>Disciplinas</a></li>
-				<li><a href="/dead/perfis"><i class="fa fa-user fa-fw"></i>Perfis</a></li>
-			</ul>
-		</div>
-	</div>
+        <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav in" id="side-menu">
+                <li><a href="/dead/usuarios"><i class="fa fa-user fa-fw"></i>Usuários</a></li>
+                <li><a href="/dead/cursos"><i class="fa fa-edit fa-fw"></i>Cursos</a></li>
+                <li><a href="/dead/programas"><i class="fa fa-file fa-fw"></i>Programas</a></li>
+                <li><a href="/dead/disciplinas"><i class="fa fa-book fa-fw"></i>Disciplinas</a></li>
+                <li><a href="/dead/perfis"><i class="fa fa-user fa-fw"></i>Perfis</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div id="page-wrapper">
 	<div class="col-lg-12">
-		
+		<h2 class="page-header">Dashboard</h2>
 	</div>
 </div>
 <!-- jQuery -->
