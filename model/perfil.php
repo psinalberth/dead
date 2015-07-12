@@ -21,7 +21,7 @@ function ListaPerfis($conecta){
 
 function alterarPerfil($conecta,$id,$nome,$descricao){
 	
-	$query = "update perfil set DESCRICAO='{$descricao}', NOME='{$nome}' where ID_PERFIL = {$id}";
+	$query = "update perfil set DESCRICAO = '$descricao', NOME ='$nome' where ID_PERFIL = '$id'";
 	sql_config($conecta);
 	return mysqli_query($conecta,$query);
 }

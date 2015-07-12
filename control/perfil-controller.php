@@ -22,7 +22,7 @@
 	function editar($conexao) {
 		
 		global $nome, $descricao, $id;
-		alterarPerfil($conexao, $nome, $descricao, $id);	
+		alterarPerfil($conexao, $id, $nome, $descricao);	
 		redirect();
 	}
 
