@@ -1,6 +1,7 @@
 <?php
 
-include_once '../model/programa.php'; 
+include_once '../model/programa.php';
+include_once '../model/perfil.php'; 
 
  function insereCurso($conecta,$nome,$descricao,$programa)
 {

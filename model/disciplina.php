@@ -1,4 +1,6 @@
 <?php 
+	
+include_once '../model/perfil.php';
 
  function insereDisciplina($conecta,$nome,$descricao)
 {
@@ -41,12 +43,4 @@ function alterarDisciplina($conecta,$id,$nome,$descricao){
 	$query = "update disciplina set DESCRICAO='{$descricao}', NOME='{$nome}' where ID_DISCIPLINA = {$id}";
 	sql_config($conecta);
 	return mysqli_query($conecta,$query);
-}
-
-function sql_config($conecta) {
-
-	mysqli_query($conecta, "SET NAMES 'utf8'");
-	mysqli_query($conecta, 'SET character_set_connection=utf8');
-	mysqli_query($conecta, 'SET character_set_client=utf8');
-	mysqli_query($conecta, 'SET character_set_results=utf8');
 }

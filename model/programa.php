@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+include_once '../model/perfil.php'; 
 
  function inserePrograma($conecta,$nome,$descricao)
 {
@@ -38,14 +40,6 @@ function buscarPrograma($conecta,$id){
 	sql_config($conecta);
 	$result = mysqli_query($conecta,$query);
 	return mysqli_fetch_assoc($result);
-}
-
-function sql_config($conecta) {
-
-	mysqli_query($conecta, "SET NAMES 'utf8'");
-	mysqli_query($conecta, 'SET character_set_connection=utf8');
-	mysqli_query($conecta, 'SET character_set_client=utf8');
-	mysqli_query($conecta, 'SET character_set_results=utf8');
 }
 
 
