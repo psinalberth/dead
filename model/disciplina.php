@@ -3,14 +3,17 @@
  function insereDisciplina($conecta,$nome,$descricao)
 {
 	$sql = "insert into disciplina (NOME,DESCRICAO) values ('{$nome}','{$descricao}')";
-		return mysqli_query($conecta, $sql);
+	sql_config($conecta);	
+	return mysqli_query($conecta, $sql);
 
 }
 
 function ListaDisciplinas($conecta){
 
 	$Disciplinas = array();
+	sql_config($conecta);
 	$resultado = mysqli_query($conecta, "select *from disciplina");
+	
 	while($Disciplina= mysqli_fetch_assoc($resultado)) {
 		array_push($Disciplinas, $Disciplina);
 	}
@@ -28,6 +31,7 @@ function RemoveDisciplina($conecta,$id)
 function buscarDisciplina($conecta,$id){
 	
 	$query = "select *from disciplina where ID_DISCIPLINA = {$id}";
+	sql_config($conecta);
 	$result = mysqli_query($conecta,$query);
 	return mysqli_fetch_assoc($result);
 }
@@ -35,7 +39,14 @@ function buscarDisciplina($conecta,$id){
 function alterarDisciplina($conecta,$id,$nome,$descricao){
 	
 	$query = "update disciplina set DESCRICAO='{$descricao}', NOME='{$nome}' where ID_DISCIPLINA = {$id}";
+	sql_config($conecta);
 	return mysqli_query($conecta,$query);
-	 
+}
 
+function sql_config($conecta) {
+
+	mysqli_query($conecta, "SET NAMES 'utf8'");
+	mysqli_query($conecta, 'SET character_set_connection=utf8');
+	mysqli_query($conecta, 'SET character_set_client=utf8');
+	mysqli_query($conecta, 'SET character_set_results=utf8');
 }

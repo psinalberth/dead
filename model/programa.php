@@ -3,22 +3,21 @@
  function inserePrograma($conecta,$nome,$descricao)
 {
 	$sql = "insert into programa (NOME,DESCRICAO) values ('{$nome}','{$descricao}')";
+	sql_config($conecta);
 		return mysqli_query($conecta, $sql);
 
 }
 
 function alteraPrograma($conecta, $nome, $descricao, $id) {
 	$sql = "update programa set NOME = '$nome', DESCRICAO = '$descricao' where ID_PROGRAMA = '$id'";
+		sql_config($conecta);
 		return mysqli_query($conecta, $sql);	
 }
 
 function ListaProgramas($conecta){
 
 	$programas = array();
-	mysqli_query($conecta, "SET NAMES 'utf8'");
-	mysqli_query($conecta, 'SET character_set_connection=utf8');
-	mysqli_query($conecta, 'SET character_set_client=utf8');
-	mysqli_query($conecta, 'SET character_set_results=utf8');
+	sql_config($conecta);
 	$resultado = mysqli_query($conecta, "select *from programa");
 	while($programa= mysqli_fetch_assoc($resultado)) {
 		array_push($programas, $programa);
@@ -36,9 +35,17 @@ function removePrograma($conecta,$id)
 function buscarPrograma($conecta,$id){
 	
 	$query = "select *from programa where ID_PROGRAMA = {$id}";
+	sql_config($conecta);
 	$result = mysqli_query($conecta,$query);
 	return mysqli_fetch_assoc($result);
 }
 
+function sql_config($conecta) {
+
+	mysqli_query($conecta, "SET NAMES 'utf8'");
+	mysqli_query($conecta, 'SET character_set_connection=utf8');
+	mysqli_query($conecta, 'SET character_set_client=utf8');
+	mysqli_query($conecta, 'SET character_set_results=utf8');
+}
 
 
