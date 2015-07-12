@@ -13,6 +13,7 @@
 			<thead>
 				<tr>
 					<th>Nome</th>
+					<th>Código</th>
 					<th>Descrição</th>
 					<th>Programa</th>
 					<th style="width: auto !important;"></th>
@@ -26,6 +27,7 @@
 	            ?>
 				<tr>
 					<td><?= $curso['NOME']?></td>
+					<td><?= $curso['CODIGO']?></td>
 					<td><?= $curso['DESCRICAO']?></td>
 					<td><?= $curso['PROGRAMA']?></td>
 					<td style="width: auto !important">				

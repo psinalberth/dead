@@ -3,6 +3,7 @@
 	include_once '../model/curso.php';
 
 	$nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+	$codigo = isset($_POST['codigo']) ? $_POST['codigo'] : "";
 	$descricao = isset($_POST['descricao']) ? $_POST['descricao'] : "";
 	$programa = isset($_POST['programa']) ? $_POST['programa'] : "";
 	$id = isset($_POST['id_curso']) ? $_POST['id_curso'] : "";
@@ -15,15 +16,15 @@
 
 	function adicionar($conexao) {
 		
-		global $nome, $descricao, $programa;
-		insereCurso($conexao, $nome, $descricao, $programa);
+		global $nome, $codigo, $descricao, $programa;
+		insereCurso($conexao, $nome, $codigo, $descricao, $programa);
 		redirect();
 	}
 
 	function editar($conexao) {
 		
-		global $nome, $descricao, $id, $programa;
-		alteraCurso($conexao, $nome, $descricao, $programa, $id);	
+		global $nome, $descricao, $id, $programa, $codigo;
+		alteraCurso($conexao, $nome, $codigo, $descricao, $programa, $id);	
 		redirect();
 	}
 

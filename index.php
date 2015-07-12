@@ -105,6 +105,8 @@
 				<li><a href="/dead/programas"><i class="fa fa-file fa-fw"></i>Programas</a></li>
 				<li><a href="/dead/disciplinas"><i class="fa fa-book fa-fw"></i>Disciplinas</a></li>
 				<li><a href="/dead/perfis"><i class="fa fa-user fa-fw"></i>Perfis</a></li>
+                <li><a href="/dead/planos"><i class="fa fa-calendar fa-fw"></i>Planos de Ensino
+                <li><a href="/dead/turmas"><i class="fa fa-group fa-fw"></i>Turmas</a></li></a></li>
 			</ul>
 		</div>
 	</div>

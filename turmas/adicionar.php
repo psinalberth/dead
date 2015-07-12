@@ -4,13 +4,13 @@
 
   include_once '../partials/header.inc.php';
   include_once '../partials/sidebar.inc.php';
-  include_once '../model/programa.php';
   include_once '../model/curso.php';
+  include_once '../model/turma.php';
 
   if (isset($_POST['id']) && is_numeric($_POST['id'])) {
 
   		$id = $_POST['id'];
-  		$curso = buscarCurso($conexao, $id);
+  		$turma = buscarTurma($conexao, $id);
   		$acao = 'edit';
   		
   } else {
@@ -20,11 +20,11 @@
   }
 ?>
 <div id="page-wrapper">
-	<form action="../control/curso-controller.php" class="form-horizontal" method="post">
+	<form action="../control/turma-controller.php" class="form-horizontal" method="post">
 		<fieldset>
 			<input type="hidden" name="acao" value= <?= $acao?>>
-			<input type="hidden" name="id_curso" value = <?= $id ?>>
-			<h3 class="page-header">Adicionar Curso</h3>
+			<input type="hidden" name="id_turma" value = <?= $id ?>>
+			<h3 class="page-header">Adicionar Turma</h3>
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary">
 					
@@ -38,59 +38,51 @@
 					<div class="panel-collapse collapse in">
 					<div class="panel-body">
 
-						<!-- Nome -->
+						<!-- Ano de Início -->
 
 						<div class="form-group has-feedback has-feedback-left">
 							<div class="col-md-10 col-sm-offset-1">
 			    				<i class="form-control-feedback glyphicon glyphicon-user"></i>
-			    				<input type="text" class="form-control" placeholder="Nome" name="nome"			    				
+			    				<input type="number" class="form-control" placeholder="Ano de Início" name="ano_inicio" min="1900" max="2199"			    				
 			    				<?php 
-			    					if (isset($curso)) 
-			    						echo " value = '".$curso['NOME']. "'";
+			    					if (isset($turma)) 
+			    						echo " value = '".$turma['ANO_INICIO']. "'";
 			    				?> />
 			    				
 							</div>
 						</div>
 
+						<!-- Semestre -->
+
 						<div class="form-group has-feedback has-feedback-left">
 							<div class="col-md-10 col-sm-offset-1">
 			    				<i class="form-control-feedback glyphicon glyphicon-user"></i>
-			    				<input type="text" class="form-control" placeholder="Código" name="codigo"			    				
+			    				<input type="number" class="form-control" placeholder="Semestre" name="semestre" min="1" max="2"
 			    				<?php 
-			    					if (isset($curso)) 
-			    						echo " value = '".$curso['CODIGO']. "'";
+			    					if (isset($turma)) 
+			    						echo " value = '".$turma['SEMESTRE']. "'";
 			    				?> />
 			    				
-							</div>
-						</div>
-
-						<!-- Descrição -->
-
-						<div class="form-group has-feedback has-feedback-left">
-							<div class="col-md-10 col-sm-offset-1">
-			    				<i class="form-control-feedback glyphicon glyphicon-user"></i>
-			    				<textarea class="form-control" placeholder="Descrição" name="descricao"
-			    				><?= isset($curso) ? $curso['DESCRICAO'] : ""?></textarea>
 							</div>
 						</div>
 						
-						<!-- Programa -->
+						<!-- Curso -->
 
 						<div class="form-group has-feedback has-feedback-left">
 							<div class="col-md-10 col-sm-offset-1">
 			    				<i class="form-control-feedback glyphicon glyphicon-user"></i>
 			    				 
-			    				<select type="text" class="form-control" placeholder="Programa" name="programa">
+			    				<select type="text" class="form-control" placeholder="Curso" name="curso">
 									<?php
-                                        $programas = ListaProgramas($conexao);
-                                        foreach($programas as $programa) :
-                                        	if (isset($curso)) {
-                                        		if ($programa['NOME'] === $curso['PROGRAMA']) {
-                                        			echo "<option selected value=".$programa['ID_PROGRAMA'].">" .$programa['NOME']."</option>";
+                                        $cursos = ListaCursos($conexao);
+                                        foreach($cursos as $curso) :
+                                        	if (isset($turma)) {
+                                        		if ($curso['NOME'] === $turma['CURSO']) {
+                                        			echo "<option selected value=".$curso['ID_CURSO'].">" .$curso['NOME']."</option>";
                                         			continue;
                                         		}
                                         	} 
-                                        		echo "<option value=".$programa['ID_PROGRAMA'].">" .$programa['NOME']."</option>";
+                                        		echo "<option value=".$curso['ID_CURSO'].">" .$curso['NOME']."</option>";
                                         endforeach;
                                     ?>
 			    				</select>
