@@ -6,10 +6,23 @@
   include_once '../partials/header.inc.php';
   include_once '../partials/sidebar.inc.php';
   
+  if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+
+  		$id = $_POST['id'];
+  		$disciplina = buscarDisciplina($conexao, $id);
+  		$acao = 'edit';
+  		
+  } else {
+
+  		$id = "";
+  		$acao = 'add';
+  }
 ?>
 <div id="page-wrapper">
-	<form action="../control/disciplinas/add-disciplina.php" class="form-horizontal" method="post">
+	<form action="../control/disciplina-controller.php" class="form-horizontal" method="post">
 		<fieldset>
+			<input type="hidden" name="acao" value= <?= $acao?>>
+			<input type="hidden" name="id_disciplina" value = <?= $id ?>>
 			<h3 class="page-header">Adicionar Disciplina</h3>
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-primary">
@@ -29,7 +42,11 @@
 						<div class="form-group has-feedback has-feedback-left">
 							<div class="col-md-10 col-sm-offset-1">
 			    				<i class="form-control-feedback glyphicon glyphicon-user"></i>
-			    				<input type="text" class="form-control" placeholder="Nome" name="nome" />
+			    				<input type="text" class="form-control" placeholder="Nome" name="nome"			    				
+			    				<?php 
+			    					if (isset($disciplina)) 
+			    						echo " value = '".$disciplina['NOME']. "'";
+			    				?> />
 							</div>
 						</div>
 
@@ -38,11 +55,9 @@
 						<div class="form-group has-feedback has-feedback-left">
 							<div class="col-md-10 col-sm-offset-1">
 			    				<i class="form-control-feedback glyphicon glyphicon-user"></i>
-			    				<textarea class="form-control" placeholder="Descrição" name="descricao" ></textarea>
+			    				<textarea class="form-control" placeholder="Descrição" name="descricao"
+			    				><?= isset($disciplina) ? $disciplina['DESCRICAO'] : ""?></textarea>
 							</div>
-						</div>
-						
-						
 						</div>
 					</div>
 					</div>

@@ -7,6 +7,7 @@
   include_once '../partials/sidebar.inc.php';
 ?>
 <div id="page-wrapper">
+	<div class="row">
 	<form action="" class="form-horizontal" method="post">
 	<fieldset>
 	<h3 class="page-header">Programas</h3>
@@ -46,6 +47,7 @@
 	</table>
 	</fieldset>
 	</form>
+	</div>
 </div>
 
 <?php include_once '../partials/footer.inc.php'; ?>

@@ -1,7 +1,6 @@
 <?php
-  include_once '../conecta.php'; 
   include_once '../includes/common.inc.php';
-  include_once '../model/disciplina.php';
+  include_once '../control/disciplina-controller.php';
 
   include_once '../partials/header.inc.php';
   include_once '../partials/sidebar.inc.php';
@@ -11,7 +10,7 @@
 <div id="page-wrapper">
 
      <div class="col-lg-12">
-                        <h1 class="page-header">
+                        <h3 class="page-header">
                           Disciplinas
                         </h1>
                       
@@ -19,7 +18,7 @@
 	      <div class="tab-pane col-lg-12 principal">
                                     <br>
                                     <br>
-                           <table class="table table-striped table-bordered">
+                           <table class="table table-condensed table-bordered">
                                 <tr>
                                       <th>Disciplinas</th>
                                       <th>Descrição</th>
@@ -28,7 +27,7 @@
                                  </tr>
 
                                 <?php
-                                    $Disciplinas = listaDisciplinas($conexao);
+                                    $Disciplinas = index($conexao);
 
                                     foreach($Disciplinas as $Disciplina) :
                                 ?>
@@ -37,16 +36,17 @@
                                     <td><?= $Disciplina['DESCRICAO'] ?></td>
                                     
                                     <td >
-                                        <form action="edita.php" method="post">
-                                            <input type="hidden" name="id" value="<?=$Disciplina['ID_DISCIPLINA']?>">
-                                            <button class="btn btn-info" title="Editar"><i class="fa fa-edit"></i></button>
+                                        <form action="../disciplinas/adicionar.php" method="POST">
+                                          <input name="id" type="hidden" value="<?= $Disciplina['ID_DISCIPLINA'] ?>"/>
+                                          <button class="btn btn-info" title="Editar"><i class="fa fa-edit"></i></button>
                                         </form>
                                       </td>
                                      <td >
-                                        <form action="../control/disciplinas/remover.php" method="post">
-                                            <input type="hidden" name="id" value="<?=$Disciplina['ID_DISCIPLINA']?>">
-                                            <button class="btn btn-danger" title="Excluir"><i class="fa fa-trash-o"></i></button>
-                                        </form>
+                                        <form action="../control/disciplina-controller.php" method="POST">
+                                          <input name="id_disciplina" type="hidden" value="<?= $Disciplina['ID_DISCIPLINA'] ?>"/>
+                                          <input name="acao" type="hidden" value="delete"/>
+                                          <button class="btn btn-danger" title="Excluir"><i class="fa fa-trash-o"></i></button>
+                                        </form> 
                                       </td>
                                 </tr>
                                 <?php

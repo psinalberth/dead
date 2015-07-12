@@ -32,7 +32,7 @@ function buscarDisciplina($conecta,$id){
 	return mysqli_fetch_assoc($result);
 }
 
-function AlterarDisciplina($conecta,$id,$nome,$descricao){
+function alterarDisciplina($conecta,$id,$nome,$descricao){
 	
 	$query = "update disciplina set DESCRICAO='{$descricao}', NOME='{$nome}' where ID_DISCIPLINA = {$id}";
 	return mysqli_query($conecta,$query);
